@@ -5,6 +5,7 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/css/css';
 import 'codemirror/theme/dracula.css';
 import { Controlled as EditorComponent } from 'react-codemirror2';
+import 'codemirror/addon/edit/closetag';
 
 export default class Editor extends React.Component {
   render() {
@@ -22,7 +23,8 @@ export default class Editor extends React.Component {
             lint: true,
             mode: codingLanguage,
             lineNumbers: true,
-            theme: 'dracula'
+            theme: 'dracula',
+            autoCloseTags: true
           }}
         />
       </div>
