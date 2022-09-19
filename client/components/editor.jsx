@@ -6,6 +6,7 @@ import 'codemirror/mode/css/css';
 import 'codemirror/theme/dracula.css';
 import { Controlled as EditorComponent } from 'react-codemirror2';
 import 'codemirror/addon/edit/closetag';
+import 'codemirror/addon/edit/closebrackets';
 
 export default class Editor extends React.Component {
   render() {
