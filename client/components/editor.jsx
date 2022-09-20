@@ -25,7 +25,8 @@ export default class Editor extends React.Component {
             mode: codingLanguage,
             lineNumbers: true,
             theme: 'dracula',
-            autoCloseTags: true
+            autoCloseTags: true,
+            autoCloseBrackets: true
           }}
         />
       </div>
