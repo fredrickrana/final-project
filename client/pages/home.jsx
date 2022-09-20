@@ -1,10 +1,14 @@
 import React from 'react';
-import HelloWorld from '../components/hello-world';
+import Header from '../components/header.jsx';
+import Project from '../components/project.jsx';
 
-export default function Home(props) {
-  return (
-    <div>
-      <HelloWorld />
-    </div>
-  );
+export default class Home extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <Project />
+      </div>
+    );
+  }
 }
