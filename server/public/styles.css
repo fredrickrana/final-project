@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.align-center {
+  align-items: center;
+}
+
 .night-background {
   background-color: #3a3f47;
 }
@@ -43,6 +47,7 @@
 .editor-container {
   width: 100%;
   cursor: pointer;
+  border: rgb(0, 0, 0) solid 1px;
 }
 
 .logo {
@@ -52,6 +57,13 @@
   margin-top: 8px;
   width: 108px;
   height: 85px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 98px;
+    height: 78px;
+  }
 }
 
 .title {
@@ -69,8 +81,8 @@
   color: rgb(255, 255, 255);
   text-shadow: 0 5px 5px rgba(0, 0, 0, 0.237);
   box-shadow: 0 5px 15px rgb(0, 0, 0);
-  transition: transform 0.5s;
   cursor: pointer;
+  transition: transform 0.5s;
   pointer-events: auto;
 }
 
@@ -91,7 +103,7 @@
 
 @media (min-width: 1400px) {
   .language-tab {
-    margin: 30px 250px;
+    margin: 30px 120px;
   }
 }
 
@@ -99,12 +111,16 @@
   height: 46vh;
 }
 
+.block {
+  display: block;
+}
+
 .hidden {
   display: none;
 }
 
 .inline {
-  display: block;
+  display: inline;
 }
 
 @media (min-width: 768px) {
@@ -113,6 +129,84 @@
   }
 
   .hidden {
-    display: block;
+    display: inline;
   }
+}
+
+.fa-bars {
+  color: #fff;
+  font-size: 35px;
+  position: absolute;
+  right: 3%;
+  top: 4%;
+}
+
+.hide {
+  display: none;
+}
+
+.modal-background {
+  background-color: rgba(31, 31, 31, 0.644);
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 50%;
+  z-index: 3;
+  height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .modal-background {
+    width: 80%;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  width: 50%;
+  height: 100vh;
+  background-color: #3a3f47;
+  z-index: 3;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 20%;
+  }
+}
+
+.modal-content {
+  line-height: 5rem;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    font-size: 24px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  background-color: #4996ac;
+}
+
+.border {
+  border: #000 solid 1px;
+  background-color: #4996ac;
+  margin: 8px 15%;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #000;
+  transition: transform 0.5s;
+}
+
+.border:hover {
+  transform: scale(1.2);
 }
