@@ -24,14 +24,17 @@ export default class Project extends React.Component {
 
   handleChangeHTML(editor, data, value) {
     this.setState({ html: value });
+    editor.refresh();
   }
 
   handleChangeCSS(editor, data, value) {
     this.setState({ css: value });
+    editor.refresh();
   }
 
   handleChangeJS(editor, data, value) {
     this.setState({ js: value });
+    editor.refresh();
   }
 
   componentDidUpdate() {
@@ -71,6 +74,25 @@ export default class Project extends React.Component {
               codingLanguage={openedEditor}
               value={code}
               onBeforeChange={updateCode}
+              className='inline'
+            />
+            <Editor
+              codingLanguage='xml'
+              value={this.state.html}
+              onBeforeChange={this.handleChangeHTML}
+              className='hidden'
+            />
+            <Editor
+              codingLanguage='css'
+              value={this.state.css}
+              onBeforeChange={this.handleChangeCSS}
+              className='hidden'
+            />
+            <Editor
+              codingLanguage='javascript'
+              value={this.state.js}
+              onBeforeChange={this.handleChangeJS}
+              className='hidden'
             />
           </div>
         </div>

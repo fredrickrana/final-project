@@ -18,6 +18,12 @@
   background-color: #929a9c3d;
 }
 
+@media (min-width: 768px) {
+  .dark-background {
+    background-color: #4996ac;
+  }
+}
+
 .blue-background {
   background-color: #4996ac;
 }
@@ -65,12 +71,48 @@
   box-shadow: 0 5px 15px rgb(0, 0, 0);
   transition: transform 0.5s;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .language-tab:hover {
   transform: scale(1.2);
 }
 
+@media (min-width: 768px) {
+  .language-tab {
+    margin: 30px 100px;
+    pointer-events: none;
+  }
+
+  .language-tab:hover {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1400px) {
+  .language-tab {
+    margin: 30px 250px;
+  }
+}
+
 .iframe {
-  height: 35vh;
+  height: 46vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.inline {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .inline {
+    display: none;
+  }
+
+  .hidden {
+    display: block;
+  }
 }
