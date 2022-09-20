@@ -10,8 +10,7 @@ export default class Project extends React.Component {
       html: '',
       css: '',
       js: '',
-      // eslint-disable-next-line
-      srcDoc: ``
+      srcDoc: ''
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChangeHTML = this.handleChangeHTML.bind(this);
