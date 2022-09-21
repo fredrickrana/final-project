@@ -10,12 +10,14 @@ export default class Project extends React.Component {
       html: '',
       css: '',
       js: '',
-      srcDoc: ''
+      srcDoc: '',
+      isFinished: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChangeHTML = this.handleChangeHTML.bind(this);
     this.handleChangeCSS = this.handleChangeCSS.bind(this);
     this.handleChangeJS = this.handleChangeJS.bind(this);
+    this.toggleFinish = this.toggleFinish.bind(this);
   }
 
   handleClick(event) {
@@ -51,6 +53,10 @@ export default class Project extends React.Component {
     return () => clearTimeout(timeOut);
   }
 
+  toggleFinish() {
+    this.setState({ isFinished: !this.state.isFinished });
+  }
+
   render() {
     const language = this.state.language;
     const clickedHTML = (language === 'HTML') ? 'dark-background' : 'blue-background';
@@ -59,6 +65,9 @@ export default class Project extends React.Component {
     const openedEditor = (language === 'HTML') ? 'xml' : (language === 'CSS') ? 'css' : 'javascript';
     const code = (language === 'HTML') ? this.state.html : (language === 'CSS') ? this.state.css : this.state.js;
     const updateCode = (language === 'HTML') ? this.handleChangeHTML : (language === 'CSS') ? this.handleChangeCSS : this.handleChangeJS;
+
+    const modalBackground = (!this.state.isFinished) ? 'hide' : 'finish-modal-background';
+    const modal = (!this.state.isFinished) ? 'hide' : 'finish-modal';
     return (
       <>
         <div className='container night-background color-white padding-20'>
@@ -107,6 +116,22 @@ export default class Project extends React.Component {
               height='100%'
               className='iframe'
             />
+          </div>
+          <div className='row position-fixed black-background justify-end'>
+            <button className='finish-button' onClick={this.toggleFinish}>Finish</button>
+          </div>
+        </div>
+        <div className='container text-center'>
+          <div className={modalBackground} onClick={this.toggleFinish}></div>
+          <div className={modal}>
+            <div className='finish-modal-content text-center font-24'>
+              <h3>Enter Title:</h3>
+              <input type="text" size='20' className='input-title' placeholder='Project Name' required/>
+              <div className='row justify-center'>
+              <button className='modal-button blue-background'>Save</button>
+              <button className='modal-button grey-background' onClick={this.toggleFinish}>Cancel</button>
+              </div>
+            </div>
           </div>
         </div>
       </>

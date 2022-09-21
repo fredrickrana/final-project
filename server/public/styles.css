@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.justify-end {
+  justify-content: end;
+}
+
 .align-center {
   align-items: center;
 }
@@ -26,6 +30,10 @@
   .dark-background {
     background-color: #4996ac;
   }
+}
+
+.grey-background {
+  background-color: #929a9c3d;
 }
 
 .blue-background {
@@ -108,7 +116,7 @@
 }
 
 .iframe {
-  height: 46vh;
+  height: 60vh;
 }
 
 .block {
@@ -139,29 +147,30 @@
   position: absolute;
   right: 3%;
   top: 4%;
+  cursor: pointer;
 }
 
 .hide {
   display: none;
 }
 
-.modal-background {
+.menu-modal-background {
   background-color: rgba(31, 31, 31, 0.644);
   position: fixed;
   top: 0%;
   left: 0%;
-  width: 50%;
+  width: 100%;
   z-index: 3;
   height: 100vh;
 }
 
 @media (min-width: 768px) {
-  .modal-background {
-    width: 80%;
+  .menu-modal-background {
+    width: 100%;
   }
 }
 
-.modal {
+.menu-modal {
   position: fixed;
   top: 0%;
   right: 0%;
@@ -169,15 +178,21 @@
   height: 100vh;
   background-color: #3a3f47;
   z-index: 3;
+  animation: mymove 0.5s 1 ease-in;
+}
+
+@keyframes mymove {
+  from { right: -10%; }
+  to { right: 0%; }
 }
 
 @media (min-width: 768px) {
-  .modal {
+  .menu-modal {
     width: 20%;
   }
 }
 
-.modal-content {
+.menu-modal-content {
   line-height: 5rem;
   font-size: 20px;
   margin-top: 40px;
@@ -209,4 +224,85 @@ a:hover {
 
 .border:hover {
   transform: scale(1.2);
+}
+
+.position-fixed {
+  position: sticky;
+  bottom: 0%;
+}
+
+.finish-button {
+  margin: 5px 35px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.237);
+  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  background-color: #4996ac;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.finish-button:hover {
+  transform: scale(1.2);
+}
+
+.finish-modal-background {
+  background-color: rgba(31, 31, 31, 0.488);
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.finish-modal {
+  position: fixed;
+  top: 25%;
+  left: 17.5%;
+  width: 65%;
+  background-color: #3a3f47;
+  z-index: 3;
+  padding: 30px 20px 70px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .finish-modal {
+    left: 32.5%;
+    width: 35%;
+    padding: 30px 0 90px;
+  }
+}
+
+.modal-button {
+  margin: 30px 35px 5px;
+  width: 25%;
+  padding: 15px 25px;
+  border-radius: 15px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.237);
+  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.modal-button:hover {
+  transform: scale(1.1);
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.input-title {
+  width: 60%;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
 }

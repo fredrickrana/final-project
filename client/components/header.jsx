@@ -14,8 +14,8 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const modalBackground = (!this.state.isOpen) ? 'hide' : 'modal-background';
-    const modal = (!this.state.isOpen) ? 'hide' : 'modal';
+    const modalBackground = (!this.state.isOpen) ? 'hide' : 'menu-modal-background';
+    const modal = (!this.state.isOpen) ? 'hide' : 'menu-modal';
     const menuButton = (!this.state.isOpen) ? 'fa-solid fa-bars' : 'hide';
     return (
       <>
@@ -31,7 +31,7 @@ export default class Header extends React.Component {
       <div className='container'>
         <div className={modalBackground} onClick={this.toggleOpen}></div>
         <div className={modal}>
-          <div className='modal-content text-center'>
+          <div className='menu-modal-content text-center'>
             <a className='block' href="#">Home</a>
             <a className='block' href="#">My Projects</a>
             <a className='block border' href="#">New Project</a>
