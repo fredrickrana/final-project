@@ -11,13 +11,16 @@ export default class Project extends React.Component {
       css: '',
       js: '',
       srcDoc: '',
-      isFinished: false
+      isFinished: false,
+      title: ''
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChangeHTML = this.handleChangeHTML.bind(this);
     this.handleChangeCSS = this.handleChangeCSS.bind(this);
     this.handleChangeJS = this.handleChangeJS.bind(this);
+    this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.toggleFinish = this.toggleFinish.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleClick(event) {
@@ -39,6 +42,10 @@ export default class Project extends React.Component {
     editor.refresh();
   }
 
+  handleChangeTitle(event) {
+    this.setState({ title: event.target.value });
+  }
+
   componentDidUpdate() {
     const timeOut = setTimeout(() => {
       this.setState({
@@ -55,6 +62,32 @@ export default class Project extends React.Component {
 
   toggleFinish() {
     this.setState({ isFinished: !this.state.isFinished });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const { html, css, js, title } = this.state;
+    const data = {
+      html,
+      css,
+      js,
+      title
+    };
+    fetch('/api/projects', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        res.json();
+      })
+      .then(result => {
+        this.setState({ isFinished: !this.state.isFinished });
+        this.setState({ title: '' });
+      })
+      .catch(err => { console.error('error:', err); });
   }
 
   render() {
@@ -126,10 +159,10 @@ export default class Project extends React.Component {
           <div className={modal}>
             <div className='finish-modal-content text-center font-24'>
               <h3>Enter Title:</h3>
-              <input type="text" size='20' className='input-title' placeholder='Project Name' required/>
+              <input type="text" size='20' className='input-title' placeholder='Project Name' onChange={this.handleChangeTitle} required/>
               <div className='row justify-center'>
-              <button className='modal-button blue-background'>Save</button>
-              <button className='modal-button grey-background' onClick={this.toggleFinish}>Cancel</button>
+                <button className='modal-button blue-background' onClick={this.handleSubmit}>Save</button>
+                <button className='modal-button grey-background' onClick={this.toggleFinish}>Cancel</button>
               </div>
             </div>
           </div>

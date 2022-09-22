@@ -11,10 +11,7 @@ import 'codemirror/addon/display/autorefresh';
 
 export default class Editor extends React.Component {
   render() {
-    const codingLanguage = this.props.codingLanguage;
-    const value = this.props.value;
-    const onBeforeChange = this.props.onBeforeChange;
-    const className = this.props.className;
+    const { codingLanguage, value, onBeforeChange, className } = this.props;
     return (
       <div className={`editor-container ${className}`}>
         <EditorComponent
