@@ -4,13 +4,6 @@ import Header from './components/header';
 import Project from './pages/project';
 import MyProjects from './pages/myprojects';
 import ProjectDetails from './pages/projectdetails';
-// import Home from './pages/home';
-
-// export default class App extends React.Component {
-//   render() {
-//     return <Home />;
-//   }
-// }
 
 export default class App extends React.Component {
   constructor(props) {
@@ -39,7 +32,6 @@ export default class App extends React.Component {
       const projectId = route.params.get('projectId');
       return <ProjectDetails projectId={projectId} />;
     }
-    // return <NotFound />;
   }
 
   render() {

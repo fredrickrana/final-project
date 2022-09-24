@@ -32,7 +32,7 @@ export default class Header extends React.Component {
         <div className={modalBackground} onClick={this.toggleOpen}></div>
         <div className={modal}>
           <div className='menu-modal-content text-center'>
-            <a className='block' href="#homepage">Home</a>
+            <a className='block' href="#">Home</a>
             <a className='block' href="#myprojects">My Projects</a>
             <a className='block border' href="#">New Project</a>
           </div>
