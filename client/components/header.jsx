@@ -33,7 +33,7 @@ export default class Header extends React.Component {
         <div className={modal}>
           <div className='menu-modal-content text-center'>
             <a className='block' href="#">Home</a>
-            <a className='block' href="#">My Projects</a>
+            <a className='block' href="#myprojects">My Projects</a>
             <a className='block border' href="#">New Project</a>
           </div>
         </div>

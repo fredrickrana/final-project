@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './button';
-import Editor from './editor';
+import Button from '../components/button';
+import Editor from '../components/editor';
 
 export default class Project extends React.Component {
   constructor(props) {
@@ -98,7 +98,6 @@ export default class Project extends React.Component {
     const openedEditor = (language === 'HTML') ? 'xml' : (language === 'CSS') ? 'css' : 'javascript';
     const code = (language === 'HTML') ? this.state.html : (language === 'CSS') ? this.state.css : this.state.js;
     const updateCode = (language === 'HTML') ? this.handleChangeHTML : (language === 'CSS') ? this.handleChangeCSS : this.handleChangeJS;
-
     const modalBackground = (!this.state.isFinished) ? 'hide' : 'finish-modal-background';
     const modal = (!this.state.isFinished) ? 'hide' : 'finish-modal';
     return (
