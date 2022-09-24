@@ -10,3 +10,7 @@
 .column-full {
   flex-basis: 100%;
 }
+
+.column-one-fourth {
+  flex-basis: 25%;
+}

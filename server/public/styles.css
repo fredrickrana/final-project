@@ -55,7 +55,7 @@
 .editor-container {
   width: 100%;
   cursor: pointer;
-  border: rgb(0, 0, 0) solid 1px;
+  border: rgb(0, 0, 0) solid 1.5px;
 }
 
 .logo {
@@ -308,9 +308,49 @@ a:hover {
   font-size: 24px;
 }
 
+.font-40 {
+  font-size: 40px;
+}
+
 .input-title {
   width: 60%;
   padding: 15px;
   border-radius: 10px;
   font-size: 18px;
+}
+
+.background-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.767)), url("./images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
+
+  /* height: auto; */
+
+  height: 100vh;
+  padding-bottom: 100px;
+}
+
+.margin-5 {
+  margin: 0 5%;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.card {
+  border: #000 solid 1px;
+  background-color: #4997ac7e;
+  padding: 20px 40px 40px;
+  width: 300px;
+  height: 200px;
+  margin: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #000;
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
