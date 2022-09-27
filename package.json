@@ -20,7 +20,8 @@
     "pg": "^8.8.0",
     "react": "^16.13.0",
     "react-codemirror2": "^7.2.1",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "typewriter-effect": "^2.17.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
