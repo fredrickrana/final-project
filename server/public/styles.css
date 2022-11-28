@@ -48,6 +48,10 @@
   color: #fff;
 }
 
+.color-blue {
+  color: #61dafb;
+}
+
 .box-shadow {
   box-shadow: 0 5px 5px rgb(52, 49, 49);
 }
@@ -58,6 +62,10 @@
 
 .margin-5 {
   margin: 0 5%;
+}
+
+.margin-description {
+  margin: 30px 8px 0 30px;
 }
 
 .font-24 {
@@ -350,4 +358,92 @@ a:hover {
 
 .card:hover {
   transform: scale(1.1);
+}
+
+.code {
+  border: #000 solid 1px;
+  background-color: #292b36;
+  width: 400px;
+  height: auto;
+  padding: 0 60px 60px 0;
+  margin: -20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #000;
+}
+
+.position-left {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+}
+
+.position-center {
+  position: absolute;
+  top: 30%;
+  left: 34%;
+}
+
+.position-right {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+}
+
+.position-bottom {
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+}
+
+.move-left {
+  animation: moveleft 4s;
+}
+
+@keyframes moveleft {
+  from { left: -10%; }
+  to { left: 10%; }
+}
+
+.move-right {
+  animation: moveright 4s;
+}
+
+@keyframes moveright {
+  from { right: -10%; }
+  to { right: 10%; }
+}
+
+.fade-in-image {
+  animation: fadein 5s;
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.object-contain {
+  object-fit: cover;
+}
+
+.button {
+  width: 200px;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 26px;
+  color: rgb(255, 255, 255);
+  background-color: #4996ac;
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.237);
+  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.margin-top {
+  margin-top: 120%;
+}
+
+.description {
+  color: #61dafb;
+  font-size: 16px;
+  padding: 10px;
 }
