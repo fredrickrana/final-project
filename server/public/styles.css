@@ -44,6 +44,10 @@
   background-color: #4996ac;
 }
 
+.red-background {
+  background-color: #ca2525dc;
+}
+
 .color-white {
   color: #fff;
 }
@@ -54,6 +58,10 @@
 
 .box-shadow {
   box-shadow: 0 5px 5px rgb(52, 49, 49);
+}
+
+.padding-10 {
+  padding: 20px 30px;
 }
 
 .padding-20 {

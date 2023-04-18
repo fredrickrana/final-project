@@ -158,7 +158,7 @@ export default class Project extends React.Component {
           <div className={modal}>
             <div className='finish-modal-content text-center font-24'>
               <h3>Enter Title:</h3>
-              <input type="text" size='20' className='input-title' placeholder='Project Name' onChange={this.handleChangeTitle} required/>
+              <input type="text" size='20' className='input-title' placeholder='Project Name' onChange={this.handleChangeTitle} maxLength='20' required/>
               <div className='row justify-center'>
                 <button className='modal-button blue-background' onClick={this.handleSubmit}>Save</button>
                 <button className='modal-button grey-background' onClick={this.toggleFinish}>Cancel</button>
