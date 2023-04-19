@@ -9,9 +9,12 @@ export default class ProjectDetails extends React.Component {
     this.state = {
       project: null,
       language: 'HTML',
+      isDeleted: false,
       route: parseRoute(window.location.hash)
     };
     this.handleClick = this.handleClick.bind(this);
+    this.toggleDelete = this.toggleDelete.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClick(event) {
@@ -26,6 +29,22 @@ export default class ProjectDetails extends React.Component {
         this.setState({ project: data });
       })
       .catch(err => { console.error('error:', err); });
+  }
+
+  toggleDelete() {
+    this.setState({ isDeleted: !this.state.isDeleted });
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+    const projectId = this.state.route.params.get('projectId');
+    fetch(`/api/projects/${projectId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    window.location.hash = '#myprojects';
   }
 
   render() {
@@ -43,6 +62,8 @@ export default class ProjectDetails extends React.Component {
     const clickedJS = (language === 'JavaScript') ? 'dark-background' : 'blue-background';
     const openedEditor = (language === 'HTML') ? 'xml' : (language === 'CSS') ? 'css' : 'javascript';
     const code = (language === 'HTML') ? html : (language === 'CSS') ? css : javascript;
+    const modalBackground = (!this.state.isDeleted) ? 'hide' : 'finish-modal-background';
+    const modal = (!this.state.isDeleted) ? 'hide' : 'finish-modal';
     return (
       <>
         <div className='container night-background color-white padding-20'>
@@ -87,6 +108,22 @@ export default class ProjectDetails extends React.Component {
               height='100%'
               className='iframe'
             />
+          </div>
+          <div className='row position-fixed black-background justify-end'>
+            <button className='finish-button' onClick={this.toggleDelete}>Delete</button>
+          </div>
+        </div>
+        <div className='container text-center'>
+          <div className={modalBackground} onClick={this.toggleDelete}></div>
+          <div className={modal}>
+            <div className='finish-modal-content text-center font-24 padding-10'>
+              <h3>Are you sure you want to delete this project?</h3>
+              <p>This action cannot be undone</p>
+              <div className='row justify-center'>
+                <button className='modal-button red-background' onClick={this.handleDelete}>Delete</button>
+                <button className='modal-button grey-background' onClick={this.toggleDelete}>Cancel</button>
+              </div>
+            </div>
           </div>
         </div>
       </>

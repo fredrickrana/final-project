@@ -51,7 +51,7 @@ app.post('/api/projects', (req, res) => {
 app.get('/api/projects/:projectId', (req, res, next) => {
   const projectId = Number(req.params.projectId);
   if (!projectId) {
-    throw new ClientError(400, 'projectId must be a positive integer');
+    throw new ClientError(401, `cannot find project with projectId ${projectId}`);
   }
   const sql = `
   select "html",
@@ -69,6 +69,27 @@ app.get('/api/projects/:projectId', (req, res, next) => {
       res.json(result.rows[0]);
     })
     .catch(err => next(err));
+});
+
+app.delete('/api/projects/:projectId', (req, res, next) => {
+  const projectId = Number(req.params.projectId);
+  if (!projectId) {
+    throw new ClientError(401, 'please include a valid bookId');
+  }
+  const sql = `
+  delete from "projects"
+  where "projectId" = $1
+  `;
+  const params = [projectId];
+  db.query(sql, params)
+    .then(result => {
+      return db
+        .query(sql, params)
+        .then(result => {
+          res.status(201);
+        })
+        .catch(err => next(err));
+    });
 });
 
 app.listen(process.env.PORT, () => {
